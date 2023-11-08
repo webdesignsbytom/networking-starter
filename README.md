@@ -1,5 +1,48 @@
 # Networking Starter
 
+## Table of contents
+
+- [Networking Starter](#networking-starter)
+  - [Table of contents](#table-of-contents)
+  - [IP v4/v6](#ip-v4v6)
+  - [Linux files](#linux-files)
+  - [Bash Scripting](#bash-scripting)
+    - [Example](#example)
+  - [Powershell .ps1](#powershell-ps1)
+  - [Linux / Bash Commands](#linux--bash-commands)
+  - [Linux key commands](#linux-key-commands)
+  - [Sudo](#sudo)
+  - [Permissions](#permissions)
+  - [Bash Coding](#bash-coding)
+  - [Linux Tools](#linux-tools)
+  - [Extension Commands](#extension-commands)
+  - [Protocals](#protocals)
+  - [Notes](#notes)
+  - [Virtual Machines](#virtual-machines)
+    - [Securing VM](#securing-vm)
+    - [Machines](#machines)
+    - [Creating DHCP server](#creating-dhcp-server)
+    - [Sharing files](#sharing-files)
+    - [Kali Linux](#kali-linux)
+  - [NMAP](#nmap)
+    - [Tools](#tools)
+  - [Important Data](#important-data)
+  - [Procesess](#procesess)
+  - [Spidering](#spidering)
+  - [Installing systems](#installing-systems)
+  - [User Permissions](#user-permissions)
+  - [Apache Web Server](#apache-web-server)
+  - [Email](#email)
+  - [Raspberry Pi](#raspberry-pi)
+  - [Important Websites](#important-websites)
+
+## IP v4/v6
+
+Ip addresses
+
+IPv4 Classes:
+<img src='./assets/images/ipv4_addresses_class.png' alt='ip' />
+
 ## Linux files
 
 1. Bin - Binary files, contains commands like ls and cat.
@@ -29,23 +72,92 @@
     5. ls -a for all files to be shown including hidden
     6.
 
-## Linux Commands
+## Bash Scripting
 
-- `touch file.js` Create file 
-- `echo var tom = 10 > file.js` Write to file 
-- `cat file.js` Read file 
+BASH (Bourne Again Shell)
+It is the command line in Linux
+You need to add the shebang (#!), with what script type.
+
+To run code you can
+
+`bash file.sh`
+`./file.sh` this will give you a permission denied response. Be sure to run `chmod 777`
+`date=$(date)` use a bash command in the code `$(pwd), $(whoami)`
+`#RANDOM` i.e echo #RANDOM. other randoms exist
+
+You can create you own variables
+`twitter="Elon Musk"`
+`echo twitter` = Elon Musk
+`export twitter` to create a variable used by children
+You will still need to save the variables to the `.bashrc` file, then they save from reboots
+
+What is bashrc?
+
+Bashrc use bash code to set up all your code you want to run on start up
+You can also get `env` variables in here
+
+MATH
+
+`echo $(( 2 + 3 ))`
+
+### Example
+
+```BASH
+#!/bin/bash
+name="Tom"
+date=$(date)
+
+echo 'Hello World'
+echo "Hello $name"
+
+echo "Enter your name $date"
+read name
+```
+
+```BASH
+#!/bin/bash
+name=$1 # this is the first param entered from bash i.e. `./file.sh tom`
+```
+
+IF
+
+```bash
+echo "Hey deo you like coffee? (y/n)"
+
+read coffee
+
+if [[ $coffee == "y" ]]; then
+        echo "Youre awesome"
+else
+        echo "leave right now"
+fi
+
+
+```
+
+## Powershell .ps1
+
+`Invoke-RestMethod` is a cmdlet in PowerShell that is used to send HTTP requests to
+
+## Linux / Bash Commands
+
+- `sudo su` Log in as Super user (root)
+- `touch file.js` Create file
+- `echo var tom = 10 > file.js` Write to file
+- `cat file.js` Read file
 - `shred file.js` Encode file prevent being seen in text by cat
 - `nano file.js` Edit file and to save press `ctrl + x + y + Enter` nano is a text editor
-- `cp file.js ./location/file.js` Copy file 
-- `mv file.js ./location/file.js` Move file 
-- `rm file.js` Remove/delete file 
+- `cp file.js ./location/file.js` Copy file
+- `mv file.js ./location/file.js` Move file
+- `rm file.js` Remove/delete file
 - `rmdir directory/` Remove/delete directory `-r` for recursive
 - `man` Get info on command + a command i.e `man cat`
-- `wget http://` Get data from the internet using url 
-- `curl http://localhost: > file.txt` Get and save 
-- `find / -name "*Search term*"` Find files  the slash is where to search meaning everywhere
-- `ifconfig` Get ip address `ip a` NEW   
-- `which cat` Find command root location 
+- `wget http://` Get data from the internet using url
+- `curl http://localhost: > file.txt` Get and save
+- `find / -name "*Search term*"` Find files the slash is where to search meaning everywhere
+- `ifconfig` Get ip address `ip a` NEW
+- `which cat` Find command root location
+- `date` get date - day month calanderday time am/pm utc year
 - Check IP `ping 8.8.8.8`
 - Check ip data `route`
 - Change permissions to all `chmod 777 file.txt`
@@ -55,6 +167,7 @@
 - Update linux `sudo apt update`
 - Open multi terminal `tilix`
 - Search for a word `grep -i "word" file.txt` the -i means case insensitive
+- `wc -l file.txt` word count per line
 -
 
 ## Linux key commands
@@ -79,12 +192,13 @@
   - `ip a`
   - `ip r`
 
-
 ## Sudo
 
 What is sudo? Super User Do
 Run a command but elevated level of permissions
 We have a 'Sudoer file' that list permissions
+
+- `sudo su` Log in as Super user (root)
 
 ## Permissions
 
@@ -133,6 +247,24 @@ A set of rules and messages that form an internet standard
 ## Virtual Machines
 
 Creating a virtual machine requires
+
+### Securing VM
+
+1. Go to settings
+2. Network settings
+3. Change net adapeter to 'Interneral Network'
+4. Name it - use this for DHCP i.e catgod
+5. Ad a DHCP server - this hands out IP addresses
+
+This create and internal network just for stuff you connect to.
+Do this to both your vm and virtual server.
+This isolates them
+
+Creating a DHCP server
+
+1. Open CMD in real machine
+2. `cd /Program Files/Oracle/VirtualBox`
+3. `vboxmanage dhcpserver add --network=catgod --server-ip=10.38.1.1 --lower-ip=10.38.1.110 --upper-ip=10.38.1.120 --netmask=255.255.255.0 --enable` can be any ip address you choose
 
 ### Machines
 
@@ -195,11 +327,16 @@ Usefull features
 - Multi Terminal `sudo apt install tilix`
 - Server `sudo apt install apache2`
 
+## NMAP
+
+`sudo nmap -sS -T4 10.38.1.110` scan ip
+If you find a ip address attached to this i.e. `10.38.1.110` try in your browser `10.38.1.111`
+`10.38.1.111/robots.txt` is a way to view data
+
 ### Tools
 
 - Low orbit ion canon
 - Burb Suite
-
 
 ## Important Data
 
@@ -232,6 +369,27 @@ You can find other users on this system and view there priviledges - allowing yo
 `cat /etc/passwd`
 As A sudo
 `sudo cat /etc/shadow`
+
+## Apache Web Server
+
+A free static web server avaialble on kali
+
+- `sudo su` Log in as Super user (root)
+- `sudo apt apache2`
+- `sudo service apache2 start`
+- `sudo service apache2 status`
+- `sudo service apache2 stop`
+
+## Email
+
+What data can you get from an Email
+What can you do responding to and email
+
+## Raspberry Pi
+
+OS install software 'Raspberry Pi Imager'
+
+`sudo apt install rpi-imager` install command for linux
 
 ## Important Websites
 
