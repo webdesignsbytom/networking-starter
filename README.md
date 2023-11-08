@@ -22,6 +22,7 @@
     - [Securing VM](#securing-vm)
     - [Machines](#machines)
     - [Creating DHCP server](#creating-dhcp-server)
+  - [DNS servers](#dns-servers)
     - [Sharing files](#sharing-files)
     - [Kali Linux](#kali-linux)
   - [NMAP](#nmap)
@@ -33,15 +34,25 @@
   - [User Permissions](#user-permissions)
   - [Apache Web Server](#apache-web-server)
   - [Email](#email)
+  - [Routers](#routers)
+  - [NAT Network Address Translation](#nat-network-address-translation)
+  - [WAN](#wan)
   - [Raspberry Pi](#raspberry-pi)
   - [Important Websites](#important-websites)
 
 ## IP v4/v6
 
+Static = manually set
+Dynamic = changed as need by dhcp server
+
 Ip addresses
 
 IPv4 Classes:
 <img src='./assets/images/ipv4_addresses_class.png' alt='ip' />
+
+IPv4 is a 32 bit binary number in 4 octets.
+They have subnet masks to increase there number.
+
 
 ## Linux files
 
@@ -207,8 +218,12 @@ d= directory
 r = read
 w = write
 x = execute
+u = user
 first `r-x` is group priveledges
 second `r-x` is user priveledges
+`chmod` change permissions
+`chmod u+x` user execute
+`chmod 777` all perms
 
 ## Bash Coding
 
@@ -288,6 +303,62 @@ Name the network you create and connect things to this i.e. server
 1. Open command prompt
 2. `cd /Program Files/Oracle/VirtualBox`
 3. `vboxmanage dhcpserver add --network=SERVER-NAME --server-ip=10.38.1.1 --lower-ip=10.38.1.110 --upper-ip=10.38.1.120 --netmask=255.255.255.0 --enable`
+
+Static IP assignment is only good for tiny home servers
+Static IP are asinged to each host.
+
+What is DHCP?
+A server that asigns IP addresses dynaically.
+When a PC boots up, it sends out a 'Discovery packet'
+Usually sent to the broadcast address (255.255.255.67)
+
+The DHCP responds with a 'Offer Packet', which is sent to the MAC address of the computer using a port
+The PC then returns a 'Request packet' to get an IP config from the server
+Then DHCP then sends back and 'Acknoledgement packet' contain the ip config.
+The PC adjusts to these settings
+
+<img src='./assets/images/DHCP server.png' alt='dhcp' />
+
+Ports used:
+Broadcast UDP 67
+Respnse is on 68
+
+Address scope - Admin configs the IP range that is handed out by DHCP
+
+Address reservations - admin reserved ip addresses for specific MAC addresses, and devices that always need the same IP such as servers and routers.
+
+Lease - Config params
+
+## DNS servers
+
+What is DNS - Domain Name System
+This is the process of asigning names to ip addreses i.e google.com
+
+`www.` = serverice
+`google.` the local domain
+`com` the top level domain
+
+Types of DNS
+
+Local - A sever on a local networks that maps FQDN to IP addresses
+Top level domain servers - TLD servers - records of top level domains
+Root server - Contains the records of TLD servers.
+
+Authoritative DNS - specifically configure to contain requested data. Comes from a DNS server with an original record
+Non-Auth - Responds with DNS to another DNS server. Its a seconds or third hand response.
+
+DNS Records
+
+- A Record - Maps host name to IPv4
+- AAAA Record - IPv6
+- CNAME - Maps alias naes to hostnames - having multiple top levels for one site. There is a canonical name.
+- PTR - Records a connonical name
+- MX record - Maps an emial server.
+
+Dynamis DNS (DDNS)
+Light weight and immediately upodating. Changing name servers without an admin.
+Software will monitor the IP address of the system and updates if it changes.
+Usefull if a access IP is dynamic.
 
 ### Sharing files
 
@@ -384,6 +455,29 @@ A free static web server avaialble on kali
 
 What data can you get from an Email
 What can you do responding to and email
+
+## Routers
+
+As a general rule, broadcasts cant be sent out of a router
+
+## NAT Network Address Translation
+
+Non routable IP addresses.
+To conserve the supply of IPv4 addresses they took a number of them away and made them non-routable  
+NAT will convert private IPs into routable Public IPs.
+
+SNAT Static NAT - each private IP is routed to a public IP. The Router will control when info can cross. It is not great for scaling.
+Dynamic NAT - Dynamically assigning routable IP addresses from a Pool of available IPs. 
+
+PAT - Port Address Translation
+PAT is a type of DNAT designed to increase scalablility.
+
+## WAN
+
+- Public switch phone network
+- Broadband cable
+- Fibreoptics
+
 
 ## Raspberry Pi
 
