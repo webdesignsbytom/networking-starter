@@ -52,7 +52,6 @@ IPv4 Classes:
 IPv4 is a 32 bit binary number in 4 octets.
 They have subnet masks to increase there number.
 
-
 ## Linux files
 
 1. Bin - Binary files, contains commands like ls and cat.
@@ -168,6 +167,7 @@ fi
 - `ifconfig` Get ip address `ip a` NEW
 - `which cat` Find command root location
 - `date` get date - day month calanderday time am/pm utc year
+- `grep` Search for text in files - By default grep is case sensitive
 - Check IP `ping 8.8.8.8`
 - Check ip data `route`
 - Change permissions to all `chmod 777 file.txt`
@@ -201,6 +201,18 @@ fi
 - `ip`
   - `ip a`
   - `ip r`
+- `grep` search texet commands - By default grep is case sensitive
+  - `-v` Exclude
+  - `-n` give line where item was found
+  - `-c` count results
+  - `-i` dont care about case sensitivity.
+  - `-r` recursive, search all subfiles
+    `grep Human listpfspeciies.txt` find all human entries
+    `grep -v Human listpfspeciies.txt` exclude all human entries
+    `grep -n Human listpfspeciies.txt` find all human entries and get LINE NUMBER
+    `grep -c Human listpfspeciies.txt` count istances of the word
+    `grep -i human listpfspeciies.txt` find all despite case
+    `grep -r "example" /path/to/directory`
 
 ## Sudo
 
@@ -466,7 +478,7 @@ To conserve the supply of IPv4 addresses they took a number of them away and mad
 NAT will convert private IPs into routable Public IPs.
 
 SNAT Static NAT - each private IP is routed to a public IP. The Router will control when info can cross. It is not great for scaling.
-Dynamic NAT - Dynamically assigning routable IP addresses from a Pool of available IPs. 
+Dynamic NAT - Dynamically assigning routable IP addresses from a Pool of available IPs.
 
 PAT - Port Address Translation
 PAT is a type of DNAT designed to increase scalablility.
@@ -476,8 +488,6 @@ PAT is a type of DNAT designed to increase scalablility.
 - Public switch phone network
 - Broadband cable
 - Fibreoptics
-
-
 
 ## Important Websites
 
