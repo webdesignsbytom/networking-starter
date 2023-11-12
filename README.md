@@ -37,7 +37,6 @@
   - [Routers](#routers)
   - [NAT Network Address Translation](#nat-network-address-translation)
   - [WAN](#wan)
-  - [Raspberry Pi](#raspberry-pi)
   - [Important Websites](#important-websites)
 
 ## IP v4/v6
@@ -479,11 +478,6 @@ PAT is a type of DNAT designed to increase scalablility.
 - Fibreoptics
 
 
-## Raspberry Pi
-
-OS install software 'Raspberry Pi Imager'
-
-`sudo apt install rpi-imager` install command for linux
 
 ## Important Websites
 
