@@ -183,6 +183,9 @@ fi
 ## Linux key commands
 
 - Create a file an edit in GNU `nano file.txt`
+- `ls` Read file
+  - `ls -a` hidden files `ls -al` hidden files in a table `ls- ah` human readable table
+  - `ls -lR Desktop` search for all files and sub directories in a location i.e Desktop.
 - File read `impacket-secretdump -sam sam.save -system system.save LOCAL`
 - `find` Find has many options `find -size 1024c`
 - `!` do the opposite `! -executable` find not executable file
