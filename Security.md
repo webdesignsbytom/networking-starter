@@ -9,6 +9,7 @@ Overview of security information
   - [Basic Network Security](#basic-network-security)
     - [Weaknesses](#weaknesses)
   - [Terms](#terms)
+  - [Set Up Security](#set-up-security)
   - [Search for](#search-for)
   - [Information Gathering](#information-gathering)
   - [Denial of Service](#denial-of-service)
@@ -33,6 +34,10 @@ The router assigns your network ip addresses. A layer 3.
 
 SOHO - Small office home office.
 
+## Set Up Security
+
+How to secure devices and networks using devices and 3rd party software.
+
 ## Search for
 
 Things we want to find or search in networks
@@ -55,7 +60,7 @@ The OSINT Framework is a tool that will search for usernames and emails across a
 
 Prevent a server from servicing real requests from clients by flooding traffic to the server.
 
-### Network DOS 
+### Network DOS
 
 Fill up the network connection with enough bandwidth until devices cant keep up.
 
@@ -67,8 +72,7 @@ Find bugs and vulnerabilities and send requests to the server that crash it.
 
 ### Operational Technology (OT) DOS
 
-This aims DOS at business systems and processing hardware and software. 
-
+This aims DOS at business systems and processing hardware and software.
 
 ## Websites
 

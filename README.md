@@ -25,6 +25,8 @@
   - [DNS servers](#dns-servers)
     - [Sharing files](#sharing-files)
     - [Kali Linux](#kali-linux)
+  - [SSH Secure Shell](#ssh-secure-shell)
+    - [Generate SSH Keys](#generate-ssh-keys)
   - [NMAP](#nmap)
     - [Tools](#tools)
   - [Important Data](#important-data)
@@ -411,6 +413,34 @@ Usefull features
 - Install python `sudo apt install tilix`
 - Multi Terminal `sudo apt install tilix`
 - Server `sudo apt install apache2`
+
+## SSH Secure Shell
+
+Secure Shell was made to protect your connection to machines and servers on networks.
+It is a protocol like http
+Encrypting data sent over the internet, so packet sniffers cannot get the important information.
+Can be used for creating and managing files wirelessly.
+
+When you intiiation an SSH connection. First you make a TCP connection and send a payload.
+
+Packet Length | 4 bytes
+Padding | 1 byte
+Payload | x bytes
+Padding | Decoy data
+Auth Code | Authenticate packets
+
+This is then encrypted and only the packet length can be seen by hackers.
+
+You can authenticate by using passwords or SSH keys that authorise you. `ssh tom@1.1.1.1 password`
+
+### Generate SSH Keys
+
+`ssh-keygen` generates a key it creates a public and private key.
+They are created in a hidden folder called ./ssh
+Private key - `~/.ssh/id_rsa`
+Public key - `~/.ssh/id_rsa.pub`
+
+On your server you will also have a SSH folder and you add the same key here.
 
 ## NMAP
 
