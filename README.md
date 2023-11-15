@@ -244,6 +244,7 @@ second `r-x` is user priveledges
 ## Bash Coding
 
 FOR LOOP: 'for > do > done' `for veg in carrot pee potato     <br/> do eacho $veg      <br/> done`
+`bash -s` allows passing arguments to the script.
 
 ## Linux Tools
 
