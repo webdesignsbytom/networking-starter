@@ -452,7 +452,9 @@ If you find a ip address attached to this i.e. `10.38.1.110` try in your browser
 ### Tools
 
 - Low orbit ion canon
-- Burb Suite
+- Burb Suite - included in kali
+- anonsurf `sudo git clone https://github.com/Und3rf10w/kali-anonsurf`
+- poweshell-empire `sudo apt install poweshell-empire` followed by `sudo powershell-empire server`
 
 ## Important Data
 
@@ -525,4 +527,6 @@ PAT is a type of DNAT designed to increase scalablility.
 
 ## Important Websites
 
-1.
+1. Overthewire
+2. Hackthebox
+3.    
