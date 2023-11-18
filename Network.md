@@ -85,18 +85,15 @@ Internet
 
 ## LAN Wireless Frequencies
 
-
 <img src="./assets/images/fqchart.png" />
-
 
 ## NAS Network Attached Storage Device
 
 NAS is similar to an external harddrive but it attaches through the network.
 They are more than just a hard drive.
 
-Why? 
+Why?
+
 1. Low storage space and one location
 2. You cant lose them
 3. Access to data from anywhere on any device.
-
-  
