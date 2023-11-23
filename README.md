@@ -40,7 +40,6 @@
   - [NAT Network Address Translation](#nat-network-address-translation)
   - [WAN](#wan)
   - [Important Websites](#important-websites)
-  - [Mining](#mining)
 
 ## IP v4/v6
 
@@ -415,6 +414,9 @@ Usefull features
 - Install python `sudo apt install tilix`
 - Multi Terminal `sudo apt install tilix`
 - Server `sudo apt install apache2`
+- NFS server `sudo apt install nfs-kernel-server`
+  - test `systemctl status nfs-kernel-server` shows shared directory
+  - config 
 
 ## SSH Secure Shell
 
@@ -530,28 +532,4 @@ PAT is a type of DNAT designed to increase scalablility.
 
 1. Overthewire
 2. Hackthebox
-3.    
 
-
-## Mining
-
-```bash
-#!/bin/bash
-sudo apt update && upgrade -y
-
-sudo apt install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev -y
-
-git clone https://github.com/xmrig/xmrig.git
-
-cd xmrig/
-
-mkdir build
-
-cd build
-
-cmake ..
-
-make
-```
-
-`./xmrig -o gulf.moneroocean.stream:10128 -u 49YzZ75Vq1Q5fYtPVn7uA8VMdN7aaByKfadPyfeBiJw5GHuD1vKkb2GjeeuApT2wu4AMpT4TBsfWuRsYEBDZNT9NVWCqwoz -p miner_name `

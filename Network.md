@@ -35,6 +35,16 @@ Connection: Modems are typically used to connect a local network to the Internet
 Purpose: A router is a device that forwards data packets between different networks. It operates at the network layer of the OSI model and is responsible for determining the best path for data to travel between devices on different networks.
 Function: Routers manage the traffic between the local network and the wider internet. They use routing tables to determine the most efficient path for data to reach its destination.
 
+## Protocols
+
+Protocols govern the communications between devices. Handling the transfer of data and interfaces between the machines. 
+
+Ethernet - NIC Network Interface Card - commincate in the same network
+IP - Get the address for the destination
+TCP - Transmition Control Protocol - Transport the information reliably
+HTTP - Application of data governs the transfer of html and web data.
+
+
 ## IPS
 
 The internet service provider is your link to the internet.
@@ -97,3 +107,21 @@ Why?
 1. Low storage space and one location
 2. You cant lose them
 3. Access to data from anywhere on any device.
+
+## Frquencies
+
+Which wireless RF band do IEEE 802.11b/g devices use? 2.5Gh
+
+900 MHz is an FCC wireless technology that was used before development of the 802.11 standards. 
+900 MHz devices have a larger coverage range than the higher frequencies have and do not require line of sight between devices. 
+802.11b/g/n/ad devices all operate at 2.4 GHz. 802.11a/n/ac/ad devices operate at 5 GHz
+802.11ad devices operate at 60 GHz.
+
+## Models
+
+### TCP/IP model
+
+Applications
+Transport
+Internet
+Network Access
