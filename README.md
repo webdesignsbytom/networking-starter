@@ -218,6 +218,10 @@ fi
     `grep -c Human listpfspeciies.txt` count istances of the word
     `grep -i human listpfspeciies.txt` find all despite case
     `grep -r "example" /path/to/directory`
+- `net.show` show all network connections
+- `net.recon on` find devices
+- `net.recon off` find devices
+- `telnet up port number` `55443` default port
 
 ## Sudo
 
@@ -252,6 +256,8 @@ use `apt` to install
 
 1. `cupp` cupp
 2. `sshpass`
+3. `yeelight` connect to e light bulbs
+4. `tellnet` 
 
 ## Extension Commands
 
