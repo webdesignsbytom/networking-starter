@@ -1,5 +1,12 @@
 # Mining
 
+## Online servers
+
+1. Google Cloud Platform
+2. AWS
+3. Linode
+
+
 ## Linux install
 
 ```bash

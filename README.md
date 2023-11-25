@@ -15,6 +15,7 @@
   - [Permissions](#permissions)
   - [Bash Coding](#bash-coding)
   - [Linux Tools](#linux-tools)
+    - [Twint tool](#twint-tool)
   - [Extension Commands](#extension-commands)
   - [Protocals](#protocals)
   - [Notes](#notes)
@@ -258,6 +259,25 @@ use `apt` to install
 2. `sshpass`
 3. `yeelight` connect to e light bulbs
 4. `tellnet` 
+5. `twint` twitter intelligence - finds data on people from twitter
+
+### Twint tool
+
+You will need
+`apt install git`
+`apt install python3`
+`apt install python3-pip`
+`git clone --depth=1 https://github.com/twintproject/twint.git`
+`cd twint`
+`pip3 install . -r requirements.txt`
+
+- `twint -h` get help
+- `twint -u [USERNAME]` scrap twitter for username
+- `twint -u [USERNAME] --limit 20`
+- `twint -u [USERNAME] -s [KEYWORD]` ssearch for keywords in tweets
+- `twint -u [USERNAME] -s [KEYWORD]` 
+
+You can import twint into python code modules
 
 ## Extension Commands
 
