@@ -260,6 +260,7 @@ use `apt` to install
 3. `yeelight` connect to e light bulbs
 4. `tellnet` 
 5. `twint` twitter intelligence - finds data on people from twitter
+6. `nslookup [IPADDRESS]`  
 
 ### Twint tool
 

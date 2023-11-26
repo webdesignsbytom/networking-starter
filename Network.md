@@ -1,5 +1,25 @@
 # Network
 
+## Table of contents
+
+- [Network](#network)
+  - [Table of contents](#table-of-contents)
+  - [Network Types](#network-types)
+  - [Device Types](#device-types)
+  - [Protocols](#protocols)
+  - [IPS](#ips)
+  - [Cable types](#cable-types)
+  - [Wireless and celluar](#wireless-and-celluar)
+  - [Routers](#routers)
+  - [LAN Wireless Frequencies](#lan-wireless-frequencies)
+  - [NAS Network Attached Storage Device](#nas-network-attached-storage-device)
+  - [Frquencies](#frquencies)
+  - [Models](#models)
+    - [TCP/IP model](#tcpip-model)
+  - [Media](#media)
+  - [Ethernet Frame](#ethernet-frame)
+    - [Encapsulation](#encapsulation)
+
 ## Network Types
 
 1. Peer to pear = 2 devices connected via cable or wifi
@@ -37,13 +57,12 @@ Function: Routers manage the traffic between the local network and the wider int
 
 ## Protocols
 
-Protocols govern the communications between devices. Handling the transfer of data and interfaces between the machines. 
+Protocols govern the communications between devices. Handling the transfer of data and interfaces between the machines.
 
 Ethernet - NIC Network Interface Card - commincate in the same network
 IP - Get the address for the destination
 TCP - Transmition Control Protocol - Transport the information reliably
 HTTP - Application of data governs the transfer of html and web data.
-
 
 ## IPS
 
@@ -112,8 +131,8 @@ Why?
 
 Which wireless RF band do IEEE 802.11b/g devices use? 2.5Gh
 
-900 MHz is an FCC wireless technology that was used before development of the 802.11 standards. 
-900 MHz devices have a larger coverage range than the higher frequencies have and do not require line of sight between devices. 
+900 MHz is an FCC wireless technology that was used before development of the 802.11 standards.
+900 MHz devices have a larger coverage range than the higher frequencies have and do not require line of sight between devices.
 802.11b/g/n/ad devices all operate at 2.4 GHz. 802.11a/n/ac/ad devices operate at 5 GHz
 802.11ad devices operate at 60 GHz.
 
@@ -125,3 +144,43 @@ Applications
 Transport
 Internet
 Network Access
+
+## Media
+
+Network media is the way data travels either through wire or wireless interfaces.
+The most common is UTP twisted pair cable. A copper ethernet cable colour coded in pairs.
+They can be shielded using a mesh of metal around the core
+
+- Common types include Coaxial cable and ethernet cable.
+- Fibre optic cabel is a glass or plastic cable. With fibre optic you dont need to wrory about EM interference.
+
+The four main criteria for choosing network media are these:
+
+What is the maximum distance that the media can successfully carry a signal?
+What is the environment in which the media will be installed?
+What is the amount of data and at what speed must it be transmitted?
+What is the cost of the media and installation?
+
+## Ethernet Frame
+
+Netwrok card to netword card transmition.
+
+<img src="./assets/images/ethernetFrame.jpg" />
+
+1. Preamble - Used to get the NIC card insync with the bits being sent to it
+2. Start frame deumiter - Tells it that following me will be eathernet frame data
+3. Destination Mac Address - destination address of the NIC card it is going to .
+4. Source MAC address - source NIC card
+5. Length Type - Could be the length of the data (next block) or what type of data it is.
+6. Data - the encapsulated data - ipv4 or ipv6 packet of data possibly containing data. TCP or HTTP headers.
+7. Frame Check Sequence. The recieving device does error checking in case the signal gets degraded in transmition.
+
+### Encapsulation
+
+Each computer message is encapsulated in a specific format, called a frame, before it is sent over the network. A frame acts like an envelope; it provides the address of the intended destination and the address of the source host. The format and contents of a frame are determined by the type of message being sent and the channel over which it is communicated. Messages that are not correctly formatted are not successfully delivered to or processed by the destination host.
+
+<img src="./assets/images/encapsulation.png" />
+<img src="./assets/images/encapsulation2.png" />
+
+
+
