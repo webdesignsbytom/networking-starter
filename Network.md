@@ -7,7 +7,7 @@
   - [Network Types](#network-types)
   - [Device Types](#device-types)
   - [Protocols](#protocols)
-  - [IPS](#ips)
+  - [ISP](#isp)
   - [Cable types](#cable-types)
   - [Wireless and celluar](#wireless-and-celluar)
   - [Routers](#routers)
@@ -64,7 +64,7 @@ IP - Get the address for the destination
 TCP - Transmition Control Protocol - Transport the information reliably
 HTTP - Application of data governs the transfer of html and web data.
 
-## IPS
+## ISP
 
 The internet service provider is your link to the internet.
 They are a network of connected networks.
@@ -144,6 +144,8 @@ Applications
 Transport
 Internet
 Network Access
+
+`ifconfig eth0 10.10.10.1` change or `netmask` `broadcast`
 
 ## Media
 
