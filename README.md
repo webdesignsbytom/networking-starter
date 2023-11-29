@@ -55,6 +55,8 @@ IPv4 Classes:
 IPv4 is a 32 bit binary number in 4 octets.
 They have subnet masks to increase there number.
 
+`ifconfig eth0 10.10.10.1` enter a new ip address to a route at eth0
+
 ## Linux files
 
 1. Bin - Binary files, contains commands like ls and cat.
@@ -261,6 +263,8 @@ use `apt` to install
 4. `tellnet` 
 5. `twint` twitter intelligence - finds data on people from twitter
 6. `nslookup [IPADDRESS]`  
+7. `Wappalyzer` is a technology profiler that shows you what websites are built with. Browser extension.
+8. `sqlmap` autosql injection tool
 
 ### Twint tool
 
