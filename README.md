@@ -265,6 +265,7 @@ use `apt` to install
 6. `nslookup [IPADDRESS]`  
 7. `Wappalyzer` is a technology profiler that shows you what websites are built with. Browser extension.
 8. `sqlmap` autosql injection tool
+9. `beef` browser explotation frame work `sudo ./beef` look for hook.js and its url
 
 ### Twint tool
 
@@ -482,6 +483,8 @@ On your server you will also have a SSH folder and you add the same key here.
 `sudo nmap -sS -T4 10.38.1.110` scan ip
 If you find a ip address attached to this i.e. `10.38.1.110` try in your browser `10.38.1.111`
 `10.38.1.111/robots.txt` is a way to view data
+
+Firewalls will pick up on nmap scans
 
 ### Tools
 
