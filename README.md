@@ -41,6 +41,7 @@
   - [NAT Network Address Translation](#nat-network-address-translation)
   - [WAN](#wan)
   - [Important Websites](#important-websites)
+  - [Notes](#notes-1)
 
 ## IP v4/v6
 
@@ -225,6 +226,8 @@ fi
 - `net.recon on` find devices
 - `net.recon off` find devices
 - `telnet up port number` `55443` default port
+- `msfconsole` Start METASPLOIT - use commands in a new terminal
+  - `top` use in a new terminal, displays processes using the highest cpu
 
 ## Sudo
 
@@ -266,6 +269,7 @@ use `apt` to install
 7. `Wappalyzer` is a technology profiler that shows you what websites are built with. Browser extension.
 8. `sqlmap` autosql injection tool
 9. `beef` browser explotation frame work `sudo ./beef` look for hook.js and its url
+10. `metasploit` starts with `msfconsole`
 
 ### Twint tool
 
@@ -567,3 +571,7 @@ PAT is a type of DNAT designed to increase scalablility.
 1. Overthewire
 2. Hackthebox
 
+
+## Notes
+
+JA3 client 
