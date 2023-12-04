@@ -6,16 +6,12 @@
   - [Table of contents](#table-of-contents)
   - [IP v4/v6](#ip-v4v6)
   - [Linux files](#linux-files)
-  - [Bash Scripting](#bash-scripting)
-    - [Example](#example)
-  - [Powershell .ps1](#powershell-ps1)
   - [Linux / Bash Commands](#linux--bash-commands)
   - [Linux key commands](#linux-key-commands)
   - [Sudo](#sudo)
   - [Permissions](#permissions)
   - [Bash Coding](#bash-coding)
   - [Linux Tools](#linux-tools)
-    - [Twint tool](#twint-tool)
   - [Extension Commands](#extension-commands)
   - [Protocals](#protocals)
   - [Notes](#notes)
@@ -86,73 +82,6 @@ They have subnet masks to increase there number.
     4. Hidden dirs start with a .
     5. ls -a for all files to be shown including hidden
     6.
-
-## Bash Scripting
-
-BASH (Bourne Again Shell)
-It is the command line in Linux
-You need to add the shebang (#!), with what script type.
-
-To run code you can
-
-`bash file.sh`
-`./file.sh` this will give you a permission denied response. Be sure to run `chmod 777`
-`date=$(date)` use a bash command in the code `$(pwd), $(whoami)`
-`#RANDOM` i.e echo #RANDOM. other randoms exist
-
-You can create you own variables
-`twitter="Elon Musk"`
-`echo twitter` = Elon Musk
-`export twitter` to create a variable used by children
-You will still need to save the variables to the `.bashrc` file, then they save from reboots
-
-What is bashrc?
-
-Bashrc use bash code to set up all your code you want to run on start up
-You can also get `env` variables in here
-
-MATH
-
-`echo $(( 2 + 3 ))`
-
-### Example
-
-```BASH
-#!/bin/bash
-name="Tom"
-date=$(date)
-
-echo 'Hello World'
-echo "Hello $name"
-
-echo "Enter your name $date"
-read name
-```
-
-```BASH
-#!/bin/bash
-name=$1 # this is the first param entered from bash i.e. `./file.sh tom`
-```
-
-IF
-
-```bash
-echo "Hey deo you like coffee? (y/n)"
-
-read coffee
-
-if [[ $coffee == "y" ]]; then
-        echo "Youre awesome"
-else
-        echo "leave right now"
-fi
-
-
-```
-
-## Powershell .ps1
-
-`Invoke-RestMethod` is a cmdlet in PowerShell that is used to send HTTP requests to
 
 ## Linux / Bash Commands
 
@@ -271,23 +200,6 @@ use `apt` to install
 9. `beef` browser explotation frame work `sudo ./beef` look for hook.js and its url
 10. `metasploit` starts with `msfconsole`
 
-### Twint tool
-
-You will need
-`apt install git`
-`apt install python3`
-`apt install python3-pip`
-`git clone --depth=1 https://github.com/twintproject/twint.git`
-`cd twint`
-`pip3 install . -r requirements.txt`
-
-- `twint -h` get help
-- `twint -u [USERNAME]` scrap twitter for username
-- `twint -u [USERNAME] --limit 20`
-- `twint -u [USERNAME] -s [KEYWORD]` ssearch for keywords in tweets
-- `twint -u [USERNAME] -s [KEYWORD]` 
-
-You can import twint into python code modules
 
 ## Extension Commands
 
