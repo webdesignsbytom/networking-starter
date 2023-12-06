@@ -335,8 +335,6 @@ Usefull if a access IP is dynamic.
 - Add to machine folder a new one directed to the shring file.
 - Click atio mount and make perminent
 
-
-
 ## SSH Secure Shell
 
 Secure Shell was made to protect your connection to machines and servers on networks.
