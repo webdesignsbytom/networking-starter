@@ -11,4 +11,8 @@
 1. hackerone
 2. bugcrowd
 3. intigriti
-4.   
+
+
+## IDOR
+
+Good types of bug to find  

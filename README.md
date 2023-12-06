@@ -19,9 +19,9 @@
     - [Securing VM](#securing-vm)
     - [Machines](#machines)
     - [Creating DHCP server](#creating-dhcp-server)
+  - [Firewalls](#firewalls)
   - [DNS servers](#dns-servers)
     - [Sharing files](#sharing-files)
-    - [Kali Linux](#kali-linux)
   - [SSH Secure Shell](#ssh-secure-shell)
     - [Generate SSH Keys](#generate-ssh-keys)
   - [NMAP](#nmap)
@@ -192,14 +192,13 @@ use `apt` to install
 1. `cupp` cupp
 2. `sshpass`
 3. `yeelight` connect to e light bulbs
-4. `tellnet` 
+4. `tellnet`
 5. `twint` twitter intelligence - finds data on people from twitter
-6. `nslookup [IPADDRESS]`  
+6. `nslookup [IPADDRESS]`
 7. `Wappalyzer` is a technology profiler that shows you what websites are built with. Browser extension.
 8. `sqlmap` autosql injection tool
 9. `beef` browser explotation frame work `sudo ./beef` look for hook.js and its url
 10. `metasploit` starts with `msfconsole`
-
 
 ## Extension Commands
 
@@ -294,6 +293,10 @@ Address reservations - admin reserved ip addresses for specific MAC addresses, a
 
 Lease - Config params
 
+## Firewalls
+
+`iptables -I INPUT -p tcp --dport <port> -j REJECT --reject-with tcp-reset`
+
 ## DNS servers
 
 What is DNS - Domain Name System
@@ -332,39 +335,7 @@ Usefull if a access IP is dynamic.
 - Add to machine folder a new one directed to the shring file.
 - Click atio mount and make perminent
 
-### Kali Linux
 
-Default user login is { name: 'kali', pass: 'kali' }
-
-1. Create new Oracle VM.
-2. Select set up Advanced.
-3. Name them, set type and version. D64
-4. Set the file you downloaded as the image.
-5. Set how much resources to let it use. 2 cores and memory.
-6. This should now be connected and you can click start in the VM box.
-7. Now you should see a install menu.
-8. Set auto capture true
-9. Select graphical install
-10. Set languages and user - leave domain blank
-11. 'Use guided entire disk'
-12. 'All files in one partition'
-13. 'Vbox harddisk'
-14. Confirm changes. Now it will install the operating system.
-15. Next you will go to Software selection.
-16. Take the default values from the first menu
-17. Select yes
-18. Select the drive
-19. Continue - Should take you to login screen.
-20. Update linux `sudo apt update`
-
-Usefull features
-
-- Install python `sudo apt install tilix`
-- Multi Terminal `sudo apt install tilix`
-- Server `sudo apt install apache2`
-- NFS server `sudo apt install nfs-kernel-server`
-  - test `systemctl status nfs-kernel-server` shows shared directory
-  - config 
 
 ## SSH Secure Shell
 
@@ -483,7 +454,6 @@ PAT is a type of DNAT designed to increase scalablility.
 1. Overthewire
 2. Hackthebox
 
-
 ## Notes
 
-JA3 client 
+JA3 client

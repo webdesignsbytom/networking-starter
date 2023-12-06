@@ -32,7 +32,9 @@ Important information and features found in linux.
 - Open multi terminal `tilix`
 - Search for a word `grep -i "word" file.txt` the -i means case insensitive
 - `wc -l file.txt` word count per line
--
+- `wget` download files - wget https://
+- `pdfinfo` get pdf metadata
+- `exiftool` photo data
 
 ## Linux key commands
 
@@ -42,7 +44,7 @@ Important information and features found in linux.
   - `ls -lR Desktop` search for all files and sub directories in a location i.e Desktop.
 - File read `impacket-secretdump -sam sam.save -system system.save LOCAL`
 - `find` Find has many options `find -size 1024c`
-  - `find -name *.txt` find any txt files 
+  - `find -name *.txt` find any txt files
 - `!` do the opposite `! -executable` find not executable file
 - `file` can find human readable files
   - File Sizes
@@ -56,6 +58,8 @@ Important information and features found in linux.
 - `uniq -u` The uniq command is used to filter out duplicate lines. The -u option tells it to only display lines that occur once in the sorted input. So, it will output the line that occurs only once in the sorted file.
 - `cat data.txt | sort | uniq -u` how to search for unique lines
 - `base64 -d -i input_file.txt` decode base64
+- `nmap`
+  - `nmap <IP> -oN <FILE_NAME>` save result for file
 - `ip`
   - `ip a`
   - `ip r`
@@ -101,3 +105,54 @@ second `r-x` is user priveledges
 `chmod` change permissions
 `chmod u+x` user execute
 `chmod 777` all perms
+
+## Words
+
+SCP = secure copy
+
+### Cron
+
+Here's a breakdown of the cron options:
+
+crontabgenerator
+
+MIN - Minute (0 - 59)
+HOUR - Hour (0 - 23)
+DOM - Day of the month (1 - 31)
+MON - Month (1 - 12 or names like Jan, Feb, Mar, etc.)
+DOW - Day of the week (0 - 6 or names like Sun, Mon, Tue, etc., where both 0 and 7 represent Sunday)
+CMD - command to be executed
+
+### Kali Linux
+
+Default user login is { name: 'kali', pass: 'kali' }
+
+1. Create new Oracle VM.
+2. Select set up Advanced.
+3. Name them, set type and version. D64
+4. Set the file you downloaded as the image.
+5. Set how much resources to let it use. 2 cores and memory.
+6. This should now be connected and you can click start in the VM box.
+7. Now you should see a install menu.
+8. Set auto capture true
+9. Select graphical install
+10. Set languages and user - leave domain blank
+11. 'Use guided entire disk'
+12. 'All files in one partition'
+13. 'Vbox harddisk'
+14. Confirm changes. Now it will install the operating system.
+15. Next you will go to Software selection.
+16. Take the default values from the first menu
+17. Select yes
+18. Select the drive
+19. Continue - Should take you to login screen.
+20. Update linux `sudo apt update`
+
+Usefull features
+
+- Install python `sudo apt install tilix`
+- Multi Terminal `sudo apt install tilix`
+- Server `sudo apt install apache2`
+- NFS server `sudo apt install nfs-kernel-server`
+  - test `systemctl status nfs-kernel-server` shows shared directory
+  - config
