@@ -19,6 +19,7 @@
     - [Securing VM](#securing-vm)
     - [Machines](#machines)
     - [Creating DHCP server](#creating-dhcp-server)
+  - [Ports](#ports)
   - [Firewalls](#firewalls)
   - [DNS servers](#dns-servers)
     - [Sharing files](#sharing-files)
@@ -38,6 +39,8 @@
   - [WAN](#wan)
   - [Important Websites](#important-websites)
   - [Notes](#notes-1)
+  - [Pen Test Methodology](#pen-test-methodology)
+  - [STRIDE](#stride)
 
 ## IP v4/v6
 
@@ -293,9 +296,51 @@ Address reservations - admin reserved ip addresses for specific MAC addresses, a
 
 Lease - Config params
 
+## Ports
+
+Protocol Port Number Description
+
+File Transfer Protocol (FTP) 21 This protocol is used by a file-sharing application built on a client-server model, meaning you can download files from a central location.
+
+Secure Shell (SSH) 22 This protocol is used to securely login to systems via a text-based interface for management.
+
+HyperText Transfer Protocol (HTTP) 80 This protocol powers the World Wide Web (WWW)! Your browser uses this to download text, images and videos of web pages.
+
+HyperText Transfer Protocol Secure (HTTPS) 443 This protocol does the exact same as above; however, securely using encryption.
+
+Server Message Block (SMB) 445 This protocol is similar to the File Transfer Protocol (FTP); however, as well as files, SMB allows you to share devices like printers.
+
+Remote Desktop Protocol (RDP) 3389 This protocol is a secure means of logging in to a system using a visual desktop interface (as opposed to the text-based limitations of the SSH protocol).
+
 ## Firewalls
 
 `iptables -I INPUT -p tcp --dport <port> -j REJECT --reject-with tcp-reset`
+
+A firewall is a device within a network responsible for determining what traffic is allowed to enter and exit. Think of a firewall as border security for a network. An administrator can configure a firewall to permit or deny traffic from entering or exiting a network based on numerous factors such as:
+
+Where the traffic is coming from? (has the firewall been told to accept/deny traffic from a specific network?)
+Where is the traffic going to? (has the firewall been told to accept/deny traffic destined for a specific network?)
+What port is the traffic for? (has the firewall been told to accept/deny traffic destined for port 80 only?)
+What protocol is the traffic using? (has the firewall been told to accept/deny traffic that is UDP, TCP or both?)
+Firewalls perform packet inspection to determine the answers to these questions.
+
+Firewalls come in all shapes and sizes. From dedicated pieces of hardware (often found in large networks like businesses) that can handle a magnitude of data to residential routers (like at your home!) or software such as Snort, firewalls can be categorised into 2 to 5 categories.
+
+Firewall Category Description
+
+- Stateful
+  This type of firewall uses the entire information from a connection; rather than inspecting an individual packet, this firewall determines the behaviour of a device based upon the entire connection.
+
+This firewall type consumes many resources in comparison to stateless firewalls as the decision making is dynamic. For example, a firewall could allow the first parts of a TCP handshake that would later fail.
+
+If a connection from a host is bad, it will block the entire device.
+
+- Stateless
+  This firewall type uses a static set of rules to determine whether or not individual packets are acceptable or not. For example, a device sending a bad packet will not necessarily mean that the entire device is then blocked.
+
+Whilst these firewalls use much fewer resources than alternatives, they are much dumber. For example, these firewalls are only effective as the rules that are defined within them. If a rule is not exactly matched, it is effectively useless.
+
+However, these firewalls are great when receiving large amounts of traffic from a set of hosts (such as a Distributed Denial-of-Service attack)
 
 ## DNS servers
 
@@ -327,6 +372,30 @@ Dynamis DNS (DDNS)
 Light weight and immediately upodating. Changing name servers without an admin.
 Software will monitor the IP address of the system and updates if it changes.
 Usefull if a access IP is dynamic.
+
+DNS isn't just for websites though, and multiple types of DNS record exist. We'll go over some of the most common ones that you're likely to come across.
+
+A Record
+
+These records resolve to IPv4 addresses, for example 104.26.10.229
+
+AAAA Record
+
+These records resolve to IPv6 addresses, for example 2606:4700:20::681a:be5
+
+CNAME Record
+
+These records resolve to another domain name, for example, TryHackMe's online shop has the subdomain name store.tryhackme.com which returns a CNAME record shops.shopify.com. Another DNS request would then be made to shops.shopify.com to work out the IP address.
+
+MX Record
+
+These records resolve to the address of the servers that handle the email for the domain you are querying, for example an MX record response for tryhackme.com would look something like alt1.aspmx.l.google.com. These records also come with a priority flag. This tells the client in which order to try the servers, this is perfect for if the main server goes down and email needs to be sent to a backup server.
+
+TXT Record
+
+TXT records are free text fields where any text-based data can be stored. TXT records have multiple uses, but some common ones can be to list servers that have the authority to send an email on behalf of the domain (this can help in the battle against spam and spoofed email). They can also be used to verify ownership of the domain name when signing up for third party services.
+
+An authoritative DNS server is the server that is responsible for storing the DNS records for a particular domain name and where any updates to your domain name DNS records would be made. Depending on the record type, the DNS record is then sent back to the Recursive DNS Server, where a local copy will be cached for future requests and then relayed back to the original client that made the request. DNS records all come with a TTL (Time To Live) value. This value is a number represented in seconds that the response should be saved for locally until you have to look it up again. Caching saves on having to make a DNS request every time you communicate with a server.
 
 ### Sharing files
 
@@ -455,3 +524,59 @@ PAT is a type of DNAT designed to increase scalablility.
 ## Notes
 
 JA3 client
+
+## Pen Test Methodology
+
+Information Gathering
+This stage involves collecting as much publically accessible information about a target/organisation as possible, for example, OSINT and research.
+Note: This does not involve scanning any systems.
+
+Enumeration/Scanning This stage involves discovering applications and services running on the systems. For example, finding a web server that may be potentially vulnerable.
+
+Exploitation This stage involves leveraging vulnerabilities discovered on a system or application. This stage can involve the use of public exploits or exploiting application logic.
+
+Privilege Escalation Once you have successfully exploited a system or application (known as a foothold), this stage is the attempt to expand your access to a system. You can escalate horizontally and vertically, where horizontally is accessing another account of the same permission group (i.e. another user), whereas vertically is that of another permission group (i.e. an administrator).
+
+Post-exploitation
+This stage involves a few sub-stages:
+
+1. What other hosts can be targeted (pivoting)
+2. What additional information can we gather from the host now that we are a privileged user
+3. Covering your tracks
+4. Reporting
+
+The goal of this stage is to get a complete picture of your target. A penetration tester will try to identify user accounts, machines on their network, network shares, applications etc. Information gathered from stage 2, and the engagement scope document will help in enumerating your target.
+
+## STRIDE
+
+(Spoofing identity, Tampering with data, Repudiation threats, Information disclosure, Denial of Service and Elevation of privileges) and PASTA (Process for Attack Simulation and Threat Analysis) infosec never tasted so good!. Let's detail STRIDE below. STRIDE, authored by two Microsoft security researchers in 1999 is still very relevant today. STRIDE includes six main principles, which I have detailed in the table below:
+
+Principle Description
+Spoofing
+This principle requires you to authenticate requests and users accessing a system. Spoofing involves a malicious party falsely identifying itself as another.
+
+Access keys (such as API keys) or signatures via encryption helps remediate this threat.
+
+Tampering
+By providing anti-tampering measures to a system or application, you help provide integrity to the data. Data that is accessed must be kept integral and accurate.
+
+For example, shops use seals on food products.
+
+Repudiation This principle dictates the use of services such as logging of activity for a system or application to track.
+Information Disclosure Applications or services that handle information of multiple users need to be appropriately configured to only show information relevant to the owner.
+Denial of Service Applications and services use up system resources, these two things should have measures in place so that abuse of the application/service won't result in bringing the whole system down.
+Elevation of Privilege This is the worst-case scenario for an application or service. It means that a user was able to escalate their authorization to that of a higher level i.e. an administrator. This scenario often leads to further exploitation or information disclosure.
+
+A breach of security is known as an incident. And despite all rigorous threat models and secure system designs, incidents do happen. Actions taken to resolve and remediate the threat are known as Incident Response (IR) and are a whole career path in cybersecurity.
+
+Incidents are classified using a rating of urgency and impact. Urgency will be determined by the type of attack faced, where the impact will be determined by the affected system and what impact that has on business operations.
+
+An incident is responded to by a Computer Security Incident Response Team (CSIRT) which is prearranged group of employees with technical knowledge about the systems and/or current incident. To successfully solve an incident, these steps are often referred to as the six phases of Incident Response that takes place, listed in the table below:
+
+Action Description
+Preparation Do we have the resources and plans in place to deal with the security incident?
+Identification Has the threat and the threat actor been correctly identified in order for us to respond to?
+Containment Can the threat/security incident be contained to prevent other systems or users from being impacted?
+Eradication Remove the active threat.
+Recovery Perform a full review of the impacted systems to return to business as usual operations.
+Lessons Learned What can be learnt from the incident? I.e. if it was due to a phishing email, employees should be trained better to detect phishing emails.

@@ -10,9 +10,13 @@ A list and explanation of the basic networking tools available.
     - [Proxy](#proxy)
   - [Wireshark](#wireshark)
   - [pdfinfo](#pdfinfo)
+  - [Traceroute](#traceroute)
   - [exiftool](#exiftool)
   - [NMap](#nmap)
     - [Powers](#powers)
+  - [FTP](#ftp)
+  - [Hydra](#hydra)
+  - [Enum4Linu](#enum4linu)
   - [Twint](#twint)
   - [Searchsploit](#searchsploit)
 
@@ -46,12 +50,15 @@ Sequencer: Sequencer is typically employed when assessing the randomness of toke
 The proxy is the main tool for packet capturing.
 When running any website you visit will have the packets monitored
 
+The Burp Proxy is the most fundamental (and most important!) of the tools available in Burp Suite. It allows us to capture requests and responses between ourselves and our target. These can then be manipulated or sent to other tools for further processing before being allowed to continue to their destination.
+
 ## Wireshark
 
 ## pdfinfo
 
-## exiftool
+## Traceroute
 
+## exiftool
 
 Photo EXIF Data
 EXIF stands for Exchangeable Image File Format; it is a standard for saving metadata to image files. Whenever you take a photo with your smartphone or with your digital camera, plenty of information gets embedded in the image. The following are examples of metadata that can be found in the original digital images:
@@ -71,6 +78,10 @@ NMap is a powerful port scanning tool to get information about the target.
 
 When port scanning with Nmap, there are three basic scan types. These are:
 
+`nmap $ip -A -vv` Basic scan with verpbose and agressive
+`nmap $ip -A -p- -vv` now scanning all ports
+`nmap $ip -p 21 -sV` run on the port found
+
 TCP Connect Scans (-sT)
 SYN "Half-open" Scans (-sS)
 UDP Scans (-sU)
@@ -78,9 +89,44 @@ Additionally there are several less common port scan types, some of which we wil
 
 TCP Null Scans (-sN)
 TCP FIN Scans (-sF)
-TCP Xmas Scans (-sX)
+TCP Xmas Scans (-sX) `nmap -p1-999 -sX 10.10.53.153 -vv`
+
+`export ip=10.10.0.0` # change it to your target machine's ip
+`nmap -p1-10000 -sS <IP> -vv -Pn` tcp syn scan
+`nmap --script=ftp-anon -p21 <IP> -vv`
+
+`nmap -A -oN nmap-$ip.out -p- $ip` run scan and save output
+`cat nmap-$ip.out | grep open` print open ports from output
+
+Let’s run an nmap scan. As a reminder, these are what the flags mean:
+
+`-sV`: service/version scan This can be valuable for security assessments, as it helps to identify potential vulnerabilities associated with specific software versions.
+`--script vuln`: run a script scan with the vuln scripts.
+`-oN nmap-$ip.out`: output in normal format to the file
+
+`-p` is used to specify a port range. -p scans all 65534 ports. By default (without -p ) nmap scans only the 1000 most common ports.
+`-A` agressive
+`-v -vv` verbopse or double verbose
+`-sn` switch tells Nmap not to scan any ports
 
 Most of these (with the exception of UDP scans) are used for very similar purposes, however, the way that they work differs between each scan. This means that, whilst one of the first three scans are likely to be your go-to in most situations, it's worth bearing in mind that other scan types exist.
+
+There are many categories available. Some useful categories include:
+
+safe:- Won't affect the target
+intrusive:- Not safe: likely to affect the target
+vuln:- Scan for vulnerabilities
+exploit:- Attempt to exploit a vulnerability
+auth:- Attempt to bypass authentication for running services (e.g. Log into an FTP server anonymously)
+brute:- Attempt to bruteforce credentials for running services
+discovery:- Attempt to query running services for further information about the network (e.g. query an SNMP server).
+
+The following switches are of particular note:
+
+-f:- Used to fragment the packets (i.e. split them into smaller pieces) making it less likely that the packets will be detected by a firewall or IDS.
+An alternative to -f, but providing more control over the size of the packets: --mtu <number>, accepts a maximum transmission unit size to use for the packets sent. This must be a multiple of 8.
+--scan-delay <time>ms:- used to add a delay between packets sent. This is very useful if the network is unstable, but also for evading any time-based firewall/IDS triggers which may be in place.
+--badsum:- this is used to generate in invalid checksum for packets. Any real TCP/IP stack would drop this packet, however, firewalls may potentially respond automatically, without bothering to check the checksum of the packet. As such, this switch can be used to determine the presence of a firewall/IDS.
 
 ### Powers
 
@@ -206,6 +252,37 @@ nmap -v -A scanme.nmap.org
 nmap -v -sn 192.168.0.0/16 10.0.0.0/8
 nmap -v -iR 10000 -Pn -p 80
 
+## FTP
+
+`ftp $ip` login to ftp
+` get PUBLIC_NOTICE.txt -.` download file and open
+
+## Hydra
+
+Hydra is a very fast online password cracking tool, which can perform rapid dictionary attacks against more than 50 Protocols, including Telnet, RDP, SSH, FTP, HTTP, HTTPS, SMB, several databases and much more. Hydra comes by default on both Parrot and Kali, however if you need it, you can find the GitHub here.
+The syntax for the command we're going to use to find the passwords is this:
+
+`hydra -t 4 -l <USER> -P /usr/share/wordlists/rockyou.txt -vV $ip ftp`
+Let's break it down:
+
+SECTION FUNCTION
+
+hydra Runs the hydra tool
+
+`-t 4` Number of parallel connections per target
+
+`-l [user]` Points to the user who's account you're trying to compromise
+
+`-P [path to dictionary]` Points to the file containing the list of possible passwords
+
+`-vV` Sets verbose mode to very verbose, shows the login+pass combination for each attempt
+
+`[machine IP]` The IP address of the target machine
+
+`ftp / protocol` Sets the protocol
+
+## Enum4Linu
+
 ## Twint
 
 Twitter Intelligence:
@@ -232,3 +309,11 @@ You can import twint into python code modules.
 
 `searchsploit`
 `searchsploit fuel cms`
+
+Launch the attached virtual machine. If you wish to access the virtual machine via Remote Desktop, use the credentials below.
+
+Machine IP: MACHINE_IP
+
+User: administrator
+
+Password: letmein123!

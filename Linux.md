@@ -35,6 +35,7 @@ Important information and features found in linux.
 - `wget` download files - wget https://
 - `pdfinfo` get pdf metadata
 - `exiftool` photo data
+- `Traceroute` like ping
 
 ## Linux key commands
 
