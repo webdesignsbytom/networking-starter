@@ -107,6 +107,7 @@ They have subnet masks to increase there number.
 - `date` get date - day month calanderday time am/pm utc year
 - `grep` Search for text in files - By default grep is case sensitive
 - Check IP `ping 8.8.8.8`
+- `ping -c 1 8.8.8.8` ping only once
 - Check ip data `route`
 - Change permissions to all `chmod 777 file.txt`
 - List files and permissions `ls -la`
@@ -562,7 +563,7 @@ By providing anti-tampering measures to a system or application, you help provid
 
 For example, shops use seals on food products.
 
-Repudiation This principle dictates the use of services such as logging of activity for a system or application to track.
+  This principle dictates the use of services such as logging of activity for a system or application to track.
 Information Disclosure Applications or services that handle information of multiple users need to be appropriately configured to only show information relevant to the owner.
 Denial of Service Applications and services use up system resources, these two things should have measures in place so that abuse of the application/service won't result in bringing the whole system down.
 Elevation of Privilege This is the worst-case scenario for an application or service. It means that a user was able to escalate their authorization to that of a higher level i.e. an administrator. This scenario often leads to further exploitation or information disclosure.

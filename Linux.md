@@ -157,3 +157,8 @@ Usefull features
 - NFS server `sudo apt install nfs-kernel-server`
   - test `systemctl status nfs-kernel-server` shows shared directory
   - config
+
+### Kali Mods
+
+- Change the shell to Bash `kali-tweaks` press space to change setting
+- Install any missing programs

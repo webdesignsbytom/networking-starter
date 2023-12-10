@@ -26,6 +26,7 @@
   - [UDP](#udp)
   - [SMB](#smb)
   - [Telnet](#telnet)
+  - [NSF](#nsf)
   - [Three way handshake](#three-way-handshake)
 
 ## Network Types
@@ -255,6 +256,9 @@ How does SMB work?
 
 Once they have established a connection, clients can then send commands (SMBs) to the server that allow them to access shares, open files, read and write files, and generally do all the sort of things that you want to do with a file system. However, in the case of SMB, these things are done over the network.
 
+- polosmb
+- 139/445
+  
 ## Telnet
 
 Telnet is an application protocol which allows you, with the use of a telnet client, to connect to and execute commands on a remote machine that's hosting a telnet server.
@@ -262,6 +266,12 @@ Telnet is an application protocol which allows you, with the use of a telnet cli
 The telnet client will establish a connection with the server. The client will then become a virtual terminal- allowing you to interact with the remote host.
 
 Replacement
+
+## NSF
+
+What is NFS?
+
+NFS stands for "Network File System" and allows a system to share directories and files with others over a network. By using NFS, users and programs can access files on remote systems almost as if they were local files. It does this by mounting all, or a portion of a file system on a server. The portion of the file system that is mounted can be accessed by clients with whatever privileges are assigned to each file.
 
 ## Three way handshake
 
