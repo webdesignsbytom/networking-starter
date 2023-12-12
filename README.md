@@ -23,6 +23,8 @@
   - [Firewalls](#firewalls)
   - [DNS servers](#dns-servers)
     - [Sharing files](#sharing-files)
+  - [SQL](#sql)
+  - [SMTP](#smtp)
   - [SSH Secure Shell](#ssh-secure-shell)
     - [Generate SSH Keys](#generate-ssh-keys)
   - [NMAP](#nmap)
@@ -124,7 +126,9 @@ They have subnet masks to increase there number.
 - Create a file an edit in GNU `nano file.txt`
 - `ls` Read file
   - `ls -a` hidden files `ls -al` hidden files in a table `ls- ah` human readable table
+  - `ls -al` super search
   - `ls -lR Desktop` search for all files and sub directories in a location i.e Desktop.
+  - `ls -al /usr/share/nmap/scripts | grep -e "http-"` search and locate
 - File read `impacket-secretdump -sam sam.save -system system.save LOCAL`
 - `find` Find has many options `find -size 1024c`
 - `!` do the opposite `! -executable` find not executable file
@@ -405,6 +409,19 @@ An authoritative DNS server is the server that is responsible for storing the DN
 - Add to machine folder a new one directed to the shring file.
 - Click atio mount and make perminent
 
+## SQL
+
+`sudo apt install default-mysql-client` this won't install the server package on your system- just the client.
+
+## SMTP
+
+Simple mail transfer protocol.
+This is a process for sending emails and is refered to as a server.
+TCP protocols are used to guarantee sending the email.
+Port 25 is the default port
+
+We can enumerate through the data.
+
 ## SSH Secure Shell
 
 Secure Shell was made to protect your connection to machines and servers on networks.
@@ -563,7 +580,7 @@ By providing anti-tampering measures to a system or application, you help provid
 
 For example, shops use seals on food products.
 
-  This principle dictates the use of services such as logging of activity for a system or application to track.
+This principle dictates the use of services such as logging of activity for a system or application to track.
 Information Disclosure Applications or services that handle information of multiple users need to be appropriately configured to only show information relevant to the owner.
 Denial of Service Applications and services use up system resources, these two things should have measures in place so that abuse of the application/service won't result in bringing the whole system down.
 Elevation of Privilege This is the worst-case scenario for an application or service. It means that a user was able to escalate their authorization to that of a higher level i.e. an administrator. This scenario often leads to further exploitation or information disclosure.

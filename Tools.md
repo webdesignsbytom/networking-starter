@@ -277,6 +277,22 @@ msfconsole: The main command-line interface.
 Modules: supporting modules such as exploits, scanners, payloads, etc.
 Tools: Stand-alone tools that will help vulnerability research, vulnerability assessment, or penetration testing. Some of these tools are msfvenom, pattern_create and pattern_offset. We will cover msfvenom within this module, but pattern_create and pattern_offset are tools useful in exploit development which is beyond the scope of this module.
 
+`Navigation`.
+`Help`: Displays a list of commands.
+`Search`: Find a module by name, CVE, etc.
+`Use`: Loads a module by name/number.
+`Back`: Unloads the current module.
+`Exit`: Closes MSFConsole.
+`Module` Configuration and Usage.
+`Info`: Provides useful information about a module.
+`show`
+`options`
+
+1. `msfconsole` load metasploit
+2. `search NAME` search for a module
+3. `use NUMBER` use found module
+4.
+
 ### Payloads
 
 Payloads are codes that will run on the target system.
@@ -308,7 +324,7 @@ Both are reverse Windows shells. The former is an inline (or single) payload, as
 
 ### MFS console
 
-`msfconsole` to launch 
+`msfconsole` to launch
 `history` see log of user history
 `help set` get help
 `use` use a something
@@ -317,7 +333,7 @@ Both are reverse Windows shells. The former is an inline (or single) payload, as
 sear
 Msfconsole is managed by context; this means that unless set as a global variable, all parameter settings will be lost if you change the module you have decided to use.
 
-`use exploit/windows/smb/ms17_010_eternalblue` 
+`use exploit/windows/smb/ms17_010_eternalblue`
 `show options`
 
 ## FTP
