@@ -21,6 +21,9 @@ A list and explanation of the basic networking tools available.
   - [Hydra](#hydra)
   - [Enum4Linu](#enum4linu)
   - [Twint](#twint)
+  - [John The Ripper](#john-the-ripper)
+    - [Identifying Hashes](#identifying-hashes)
+    - [Format-Specific Cracking](#format-specific-cracking)
   - [Searchsploit](#searchsploit)
   - [NFS](#nfs)
     - [Root Shell Acceess](#root-shell-acceess)
@@ -388,6 +391,47 @@ You will need
 - `twint -u [USERNAME] -s [KEYWORD]`
 
 You can import twint into python code modules.
+
+## John The Ripper
+
+`john`
+`sudo apt install john`
+
+John the Ripper is one of the most well known, well-loved and versatile hash cracking tools out there. It combines a fast cracking speed, with an extraordinary range of compatible hash types. This room will assume no previous knowledge, so we must first cover some basic terms and concepts before we move into practical hash cracking.
+
+The basic syntax of John the Ripper commands is as follows. We will cover the specific options and modifiers used as we use them.
+
+`john [options] [path to file]`
+
+`john` - Invokes the John the Ripper program
+
+`[path to file]` - The file containing the hash you're trying to crack, if it's in the same directory you won't need to name a path, just the file.
+
+`john --wordlist=/usr/share/wordlists/rockyou.txt hash_to_crack.txt`
+
+### Identifying Hashes
+
+Sometimes John won't play nicely with automatically recognising and loading hashes, that's okay! We're able to use other tools to identify the hash, and then set john to use a specific format. There are multiple ways to do this, such as using an online hash identifier like this one. I like to use a tool called hash-identifier, a Python tool that is super easy to use and will tell you what different types of hashes the one you enter is likely to be, giving you more options if the first one fails.
+
+To use hash-identifier, you can just pull the python file from gitlab using:
+`wget https://gitlab.com/kalilinux/packages/hash-identifier/-/raw/kali/master/hash-id.py`
+
+Then simply launch it with
+`python3 hash-id.py`
+and then enter the hash you're trying to identify- and it will give you possible formats!
+
+### Format-Specific Cracking
+
+Once you have identified the hash that you're dealing with, you can tell john to use it while cracking the provided hash using the following syntax:
+
+`john --format=[format] --wordlist=[path to wordlist] [path to file]`
+`--format=` - This is the flag to tell John that you're giving it a hash of a specific format, and to use the following format to crack it
+
+[format] - The format that the hash is in
+
+Example Usage:
+
+`john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash_to_crack.txt`
 
 ## Searchsploit
 
