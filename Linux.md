@@ -4,6 +4,7 @@ Important information and features found in linux.
 
 ## Linux / Bash Commands
 
+- `wsl --install` Will install the latest Ubuntu package on windows via the termial
 - `sudo su` Log in as Super user (root)
 - `touch file.js` Create file
 - `echo var tom = 10 > file.js` Write to file
