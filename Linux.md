@@ -158,6 +158,9 @@ Usefull features
 - NFS server `sudo apt install nfs-kernel-server`
   - test `systemctl status nfs-kernel-server` shows shared directory
   - config
+- docker `apt install docker.io`
+  - `systemctl enable docker`
+  - `sudo docker pull techdesigntavistock/docker_man:1.0`
 
 ### Kali Mods
 
