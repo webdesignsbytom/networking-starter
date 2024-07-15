@@ -14,8 +14,6 @@
   - [LAN Wireless Frequencies](#lan-wireless-frequencies)
   - [NAS Network Attached Storage Device](#nas-network-attached-storage-device)
   - [Frquencies](#frquencies)
-  - [Models](#models)
-    - [TCP/IP model](#tcpip-model)
   - [Media](#media)
   - [Ethernet Frame](#ethernet-frame)
     - [Encapsulation](#encapsulation)
@@ -28,6 +26,12 @@
   - [Telnet](#telnet)
   - [NSF](#nsf)
   - [Three way handshake](#three-way-handshake)
+  - [TCP/IP model](#tcpip-model)
+    - [MAC address table](#mac-address-table)
+    - [Internet later \[Layer 3\]](#internet-later-layer-3)
+    - [Switches \[Layer 2\]](#switches-layer-2)
+    - [FCS Frame Check Sequence](#fcs-frame-check-sequence)
+    - [Pysical \[layer 1\]](#pysical-layer-1)
 
 ## Network Types
 
@@ -145,17 +149,6 @@ Which wireless RF band do IEEE 802.11b/g devices use? 2.5Gh
 802.11b/g/n/ad devices all operate at 2.4 GHz. 802.11a/n/ac/ad devices operate at 5 GHz
 802.11ad devices operate at 60 GHz.
 
-## Models
-
-### TCP/IP model
-
-Applications
-Transport
-Internet
-Network Access
-
-`ifconfig eth0 10.10.10.1` change or `netmask` `broadcast`
-
 ## Media
 
 Network media is the way data travels either through wire or wireless interfaces.
@@ -258,7 +251,7 @@ Once they have established a connection, clients can then send commands (SMBs) t
 
 - polosmb
 - 139/445
-  
+
 ## Telnet
 
 Telnet is an application protocol which allows you, with the use of a telnet client, to connect to and execute commands on a remote machine that's hosting a telnet server.
@@ -285,3 +278,69 @@ Step Message Description
 4. DATA Once a connection has been established, data (such as bytes of a file) is sent via the "DATA" message.
 5. FIN This packet is used to cleanly (properly) close the connection after it has been complete.
 6. RST This packet abruptly ends all communication. This is the last resort and indicates there was some problem during the process. For example, if the service or application is not working correctly, or the system has faults such as low resources.
+
+## TCP/IP model
+
+Applications
+Transport
+Internet
+Network Access
+
+`ifconfig eth0 10.10.10.1` change or `netmask` `broadcast`
+
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+
+The three fields found in an 802.3 Ethernet frame are the
+source physical address,
+destination physical address,
+frame check sequence
+
+Criteria for choosing a network medium are the distance across which the selected medium can successfully carry a signal, the environment in which the selected medium is to be installed, the amount of data and the speed at which the data must be transmitted, and the cost of the medium and its installation.
+
+### MAC address table
+
+Media Access Control - a name for your device to share its location and ia physical address
+Assigned to a NIC
+The address is 48 bits or 6 bytes.
+
+Is the `2. Data link` layer of the TCP/IP network interface
+
+All communication methods include a message source, destination, and a transmission medium.
+
+![alt text](image.png)
+
+### Internet later [Layer 3]
+
+The Internet Layer of the TCP/IP model aligns with the Layer 3 (Network) Layer of the OSI model. This is where IP addresses and routing live.
+
+A subnet mask is used to divide an IP address into two parts. One part identifies the host (computer), the other part identifies the network to which it belongs. To better understand how IP addresses and subnet masks work, look at an IP address and see how it's organized.
+
+### Switches [Layer 2]
+
+They duplicate the electrical signal of each frame and send it to ports
+A switch uses the source MAC address of incoming frames to keep the MAC address table up to date.
+
+A switches performs two functions when it receives a frame:
+
+The switch examines the source MAC address and adds it to the MAC address table if it is not already in the table.
+The switch examines the destination MAC address. If the MAC address is in the MAC address table, the frame is sent to the appropriate port. If the MAC address is not in the MAC address table, the frame is sent to all ports that have devices attached except the port the frame came in on.
+
+### FCS Frame Check Sequence
+
+The purpose of the FCS (Frame Check Sequence) field in a frame is to determine if any errors occurred during the transmission and reception. It serves as a means of verifying the integrity of the frame by comparing the computed CRC (Cyclic Redundancy Check) value with the CRC value stored in the FCS field.
+
+### Pysical [layer 1]
+
+Fiber-optic cables can carry very large amounts of data and are used extensively by telephone companies and in backbone networks.
+
+Data is transmitted across a network on media. Modern networks primarily use three types of media to interconnect devices:
+
+Metal wires within cables (copper cable, such as twisted-pair and coaxial cable) - Data is encoded into electrical impulses.
+Glass or plastic fibers within cables (fiber-optic cable) - Data is encoded into pulses of light.
+Wireless transmission - Data is encoded via modulation of specific frequencies of electromagnetic waves.
+
+Fiber optic media is more expensive than copper cabling used over the same distance. Fiber optic cables use light instead of an electrical signal, so EMI and RFI are not issues. However, fiber optic does require different skills to terminate and splice.
+
+According to the Ethernet standards, each Ethernet frame can carry 46 to 1500 bytes of user data. During the encapsulation process, other fields are added, such as destination MAC address, source MAC address, and FCS. The size of Ethernet frames is normally limited to a maximum of 1518 bytes and a minimum of 64 bytes.

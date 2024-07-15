@@ -48,5 +48,5 @@ app.listen(4000, () => {
 2. In the root directory create a `.dockerignore` file and add node_modules or similar items
 3. Build a docker image with the build command and connect to your username and then add a path or `.` for current working directory.
    - `docker build -t techdesigntavistock/filename:verisonnumber .`
-4. `docker run -p 8888:4000 c41020bcb2c6686b63a4db1d8d572d261aac21b6bad47d064c00f8cb8903bb70` expose a localhost port to the docker 
+4. `docker run -p 8888:4000 -d c41020bcb2c6686b63a4db1d8d572d261aac21b6bad47d064c00f8cb8903bb70` expose a localhost port to the docker `-d` to prevent log from running  
 5. User `docker push` to push image to docker hub the cloud
