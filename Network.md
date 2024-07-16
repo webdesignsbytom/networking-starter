@@ -194,6 +194,9 @@ The processes of encapsulation and de-encapsulation are very important -- not le
 
 Local Area Network
 
+LAN means any local network or group of local networks that come under the same administrative control.
+An intranet is a private LAN network for a business.
+
 The networks have a 'Topology' which is there structure for connecting.
 i.e. star network and Bus.
 

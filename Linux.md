@@ -37,6 +37,7 @@ Important information and features found in linux.
 - `pdfinfo` get pdf metadata
 - `exiftool` photo data
 - `Traceroute` like ping
+- `netstat` get list of services on ports
 
 ## Linux key commands
 
