@@ -23,6 +23,11 @@ Overview of security information
   - [Advanced Persistent Threats](#advanced-persistent-threats)
   - [Crypto](#crypto)
   - [Social Engineering Attacks](#social-engineering-attacks)
+  - [Netowrk attacks](#netowrk-attacks)
+  - [Application Attacks](#application-attacks)
+  - [Threat Actors](#threat-actors)
+  - [Methods of Attack](#methods-of-attack)
+  - [Threat Intelligence Sources](#threat-intelligence-sources)
 
 ## Basic Network Security
 
@@ -158,3 +163,46 @@ Is described as getting someone to do something they usually would not. i.e clic
 
 ![alt text](image-4.png)
 ![alt text](image-5.png)
+
+## Netowrk attacks
+
+1. Domain Hijacking
+2. MAC flooding - forcing a unicast flooding (layer 2)
+3. ARP poisioning/ ARP spoofing - changing MAC addresses (layer 2)  
+4. MAC cloning - duplicate MAC addresses
+
+## Application Attacks
+
+1. Malicious code or script execution
+
+## Threat Actors
+
+A malicious person.
+
+![alt text](image-7.png)
+![alt text](image-8.png)
+
+1. Advanced persistent threat APT
+2. Insider threats
+3. State actors
+4. Hactavisists
+5. Script Kiddies
+6. Criminal syndicates
+7. Hackers
+8. Shadow IT
+9. Competitors
+
+## Methods of Attack
+
+1. Direct access
+2. Wireless
+3. Emails
+4. Supply chain
+5. Social media
+6. Cloud
+
+## Threat Intelligence Sources
+
+1. Public/Private info cneters - CISA agency shares information
+2. Dark Web
+3. Automated Indicator Sharing
