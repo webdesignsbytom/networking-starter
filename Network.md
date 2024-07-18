@@ -7,6 +7,7 @@
   - [Network Types](#network-types)
   - [Device Types](#device-types)
   - [Protocols](#protocols)
+  - [OSI](#osi)
   - [ISP](#isp)
   - [Cable types](#cable-types)
   - [Wireless and celluar](#wireless-and-celluar)
@@ -77,6 +78,10 @@ IP - Get the address for the destination
 TCP - Transmition Control Protocol - Transport the information reliably
 HTTP - Application of data governs the transfer of html and web data.
 
+## OSI
+
+
+![alt text](./assets/osi-550x425.gif)
 ## ISP
 
 The internet service provider is your link to the internet.
