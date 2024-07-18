@@ -15,12 +15,14 @@ OSI model
 5. Network
 6. Data Link
 7. Physical
-8. TCP / IP Model
-9. Application
-10. Transport
-11. Network
-12. Data Link
-13. Physical
+
+TCP / IP Model
+
+1. Application
+2. Transport
+3. Network
+4. Data Link
+5. Physical
 
 ## Devices
 
@@ -102,7 +104,6 @@ The correct order in which DHCP messages are sent between a host and a DHCP serv
 
 discover, offer, request, acknowledgment
 
-
 ## Gateways
 
 A way for networks to leave and use another network.
@@ -110,5 +111,8 @@ When a computer needs to forward to a destination that is not connected to thems
 
 ### Default Gateway
 
-A Default Gateway is a router interface that traffic will come to first. 
+A Default Gateway is a router interface that traffic will come to first.
 
+## Subnetting
+
+![alt text](image-6.png)
