@@ -28,6 +28,7 @@ Overview of security information
   - [Threat Actors](#threat-actors)
   - [Methods of Attack](#methods-of-attack)
   - [Threat Intelligence Sources](#threat-intelligence-sources)
+  - [Authentication Methods](#authentication-methods)
 
 ## Basic Network Security
 
@@ -207,3 +208,7 @@ A malicious person.
 1. Public/Private info cneters - CISA agency shares information
 2. Dark Web
 3. Automated Indicator Sharing
+
+## Authentication Methods
+
+![alt text](image-10.png)
