@@ -1,6 +1,10 @@
 # Commands
 
-![alt text](image-1.png)
+![alt text](./assets/images/image-1.png)
+
+## Genral
+
+`proxychains`
 
 ## Netstat 
 
@@ -11,3 +15,12 @@
 `apt-get install figlet`
 Edit the .bashrc file and add: `figlet serverpi` replace serverpi with text
 `source ~/.bashrc`
+
+## Onionshare
+
+`apt install snapd` 
+`apt install onionshare-cli` for cli only
+
+## TOR
+
+`apt install apt-transport-https`
