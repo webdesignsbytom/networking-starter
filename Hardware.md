@@ -6,6 +6,8 @@ The process of moving data within a network.
 
 Ports: Fast Ethernet and DSL
 
+A smarter version of a hub.
+
 A switch will recieve packets.
 The first thing it will do is look at the source MAC address of the NIC.
 If a switch does not know where to send a Ethernet Frame, it will send it to all devices until it finds a match.

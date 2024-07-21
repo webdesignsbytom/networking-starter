@@ -22,6 +22,7 @@
     - [Star Topology](#star-topology)
     - [Bus Topology](#bus-topology)
     - [Ring Topology](#ring-topology)
+  - [WAN - WIDE AREA NETWORK](#wan---wide-area-network)
   - [UDP](#udp)
   - [SMB](#smb)
   - [Telnet](#telnet)
@@ -33,6 +34,7 @@
     - [Switches \[Layer 2\]](#switches-layer-2)
     - [FCS Frame Check Sequence](#fcs-frame-check-sequence)
     - [Pysical \[layer 1\]](#pysical-layer-1)
+  - [SSH Remote Port forwarding](#ssh-remote-port-forwarding)
 
 ## Network Types
 
@@ -235,6 +237,11 @@ Because there is only one direction for data to travel across this topology, it 
 
 Lastly, ring topologies are less prone to bottlenecks, such as within a bus topology, as large amounts of traffic are not travelling across the network at any one time. The design of this topology does, however, mean that a fault such as cut cable, or broken device will result in the entire networking breaking.
 
+## WAN - WIDE AREA NETWORK
+
+Internal = LAN
+External = WAN
+
 ## UDP
 
 The User Datagram Protocol (UDP) is another protocol that is used to communicate data between devices.
@@ -352,3 +359,15 @@ Wireless transmission - Data is encoded via modulation of specific frequencies o
 Fiber optic media is more expensive than copper cabling used over the same distance. Fiber optic cables use light instead of an electrical signal, so EMI and RFI are not issues. However, fiber optic does require different skills to terminate and splice.
 
 According to the Ethernet standards, each Ethernet frame can carry 46 to 1500 bytes of user data. During the encapsulation process, other fields are added, such as destination MAC address, source MAC address, and FCS. The size of Ethernet frames is normally limited to a maximum of 1518 bytes and a minimum of 64 bytes.
+
+
+## SSH Remote Port forwarding
+
+Securely accessing a computer over a network by redirecting traffic from one port to another.
+A type of tunneling.
+
+You set up a secure tunnel between the client and host machines. The SSH protocol will encrypt the data being sent.
+
+Benifits are that it is a easy way to connect to a machine securely.
+![alt text](image-12.png)
+
