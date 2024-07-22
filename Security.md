@@ -29,6 +29,9 @@ Overview of security information
   - [Methods of Attack](#methods-of-attack)
   - [Threat Intelligence Sources](#threat-intelligence-sources)
   - [Authentication Methods](#authentication-methods)
+    - [Directory Services](#directory-services)
+    - [Multi Factor Authentication](#multi-factor-authentication)
+    - [AAA Authentication, Authorization, Accounting Services](#aaa-authentication-authorization-accounting-services)
 
 ## Basic Network Security
 
@@ -173,7 +176,7 @@ Is described as getting someone to do something they usually would not. i.e clic
 4. MAC cloning - duplicate MAC addresses
 5. HTTP flood - saphyra.py
 
-![alt text](image-11.png)
+![alt text](./assets/images/image-11.png)
 
 ## Application Attacks
 
@@ -183,9 +186,9 @@ Is described as getting someone to do something they usually would not. i.e clic
 
 A malicious person.
 
-![alt text](image-7.png)
-![alt text](image-8.png) 
-![alt text](image-9.png)
+![alt text](./assets/images/image-7.png)
+![alt text](./assets/images/image-8.png) 
+![alt text](./assets/images/image-9.png)
 
 1. Advanced persistent threat APT
 2. Insider threats
@@ -214,4 +217,32 @@ A malicious person.
 
 ## Authentication Methods
 
-![alt text](image-10.png)
+![alt text](./assets/images/image-10.png)
+
+1. Auth Apps - microsoft authenticor 
+2. Push notification - push a notice to a mobile app
+3. SMS message - with 2 factor of authentication - could be a phone call - considered less secure
+4. Attestation - request originate from an approved device
+
+### Directory Services
+
+Store retrieve and manage infomation about objects such as users.
+They are coupled with an authentication services - kerberos
+
+Federation - is a collection of domains that have established trust.
+
+### Multi Factor Authentication
+
+Something you know/have/are
+Used for authentication with passwords from apps or calls
+
+### AAA Authentication, Authorization, Accounting Services
+
+A network access server
+
+RADIUS - usees UDP and encrypts the password only
+TACACS+ - Use TCP and encrypt the entire session
+Diameter - is based on radius and improves weaknesses but is not compatible with radius
+
+
+![alt text](./assets/images/image28.png)
