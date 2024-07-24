@@ -121,6 +121,8 @@ Let’s run an nmap scan. As a reminder, these are what the flags mean:
 
 Most of these (with the exception of UDP scans) are used for very similar purposes, however, the way that they work differs between each scan. This means that, whilst one of the first three scans are likely to be your go-to in most situations, it's worth bearing in mind that other scan types exist.
 
+![alt text](image-4.png)
+
 There are many categories available. Some useful categories include:
 
 safe:- Won't affect the target

@@ -167,3 +167,15 @@ Usefull features
 
 - Change the shell to Bash `kali-tweaks` press space to change setting
 - Install any missing programs
+
+## Daemons
+
+These are services in linux or other OS
+
+`systemd` d = daemon
+`sshd` ssh daemon
+`stop start`
+
+Linux has a master daemon that boots all the daemon processes that run the rest of the OS
+
+`ps tree` list of processes stemming from systemd 
