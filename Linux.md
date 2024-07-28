@@ -178,4 +178,4 @@ These are services in linux or other OS
 
 Linux has a master daemon that boots all the daemon processes that run the rest of the OS
 
-`ps tree` list of processes stemming from systemd 
+`ps tree` list of processes stemming from systemd  

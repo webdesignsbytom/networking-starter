@@ -31,6 +31,10 @@ If Host-A has an IP packet to send to Host-B, and Host-A has determined that Hos
 
 Unlike switches, which make their forwarding decision based on the Layer 2 MAC address, routers make their forwarding decision based on the Layer 3 IP address.
 
+### Software
+
+1. openWRT - a software to turn a device into a router 
+
 ## Modem
 
 ##

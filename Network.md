@@ -35,6 +35,7 @@
     - [FCS Frame Check Sequence](#fcs-frame-check-sequence)
     - [Pysical \[layer 1\]](#pysical-layer-1)
   - [SSH Remote Port forwarding](#ssh-remote-port-forwarding)
+  - [SOC System on Chip](#soc-system-on-chip)
 
 ## Network Types
 
@@ -371,3 +372,6 @@ You set up a secure tunnel between the client and host machines. The SSH protoco
 Benifits are that it is a easy way to connect to a machine securely.
 ![alt text](image-12.png)
 
+## SOC System on Chip
+
+Everything OS on one chip
